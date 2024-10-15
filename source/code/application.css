@@ -1,0 +1,162 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('https://t4.ftcdn.net/jpg/00/36/56/91/360_F_36569194_NlP2lY7G89KsLeJ0NYGK8QxM5nYt2hWF.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.form-container {
+    background: #481E14;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 24px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #FABC3F;
+    outline: none;
+    box-shadow: 0 0 5px rgba(250, 188, 63, 0.3);
+}
+
+.form-group button {
+    width: 100%;
+    padding: 12px;
+    background-color: #E85C0D;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.form-group button:hover {
+    background-color: #d2560a;
+}
+
+.form-group button:active {
+    transform: scale(0.98);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #aaa;
+}
+
+.checkbox-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.checkbox-group label {
+    font-weight: normal;
+    color: #fff;
+}
+
+.inspection-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Create responsive grid */
+    gap: 10px;
+}
+
+.inspection-items input[type="checkbox"] {
+    display: none;
+}
+
+.inspection-items label {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: #333; /* Ensure text color is readable */
+}
+
+.inspection-items input[type="checkbox"]:checked + label {
+    background-color: #E85C0D;
+    color: #fff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .form-container {
+        padding: 15px;
+        max-width: 100%;
+    }
+
+    .form-group input,
+    .form-group select {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .form-group button {
+        font-size: 14px;
+    }
+
+    .form-container h2 {
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    .form-container {
+        padding: 25px;
+        max-width: 80%;
+    }
+}

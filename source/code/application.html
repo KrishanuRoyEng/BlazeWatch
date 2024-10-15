@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Form</title>
+    <link rel="stylesheet" href="application.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Application Form</h2>
+        <form>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name">
+            </div>
+
+            <div class="form-group">
+                <label for="relation">Relation to the Applicant</label>
+                <input type="text" id="relation" name="relation" placeholder="Enter your relation to the applicant">
+            </div>
+
+            <div class="form-group">
+                <label for="contact">Contact Number</label>
+                <input type="text" id="contact" name="contact" placeholder="Enter your contact number">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email">
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" rows="3" placeholder="Enter your address"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="inspection-items">What Does the Applicant Wish to Inspect?</label>
+                <div class="inspection-items">
+                    <input type="checkbox" id="electrical-wiring" name="inspection" value="electrical-wiring">
+                    <label for="electrical-wiring">Electrical Wiring</label>
+
+                    <input type="checkbox" id="fire-extinguishers" name="inspection" value="fire-extinguishers">
+                    <label for="fire-extinguishers">Fire Extinguishers</label>
+
+                    <input type="checkbox" id="hoses" name="inspection" value="hoses">
+                    <label for="hoses">Hoses</label>
+
+                    <input type="checkbox" id="fire-alarms" name="inspection" value="fire-alarms">
+                    <label for="fire-alarms">Fire Alarms</label>
+
+                    <input type="checkbox" id="sprinklers" name="inspection" value="sprinklers">
+                    <label for="sprinklers">Sprinklers</label>
+
+                    <input type="checkbox" id="fire-exits" name="inspection" value="fire-exits">
+                    <label for="fire-exits">Fire Exits</label>
+
+                    <input type="checkbox" id="smoke-detectors" name="inspection" value="smoke-detectors">
+                    <label for="smoke-detectors">Smoke Detectors</label>
+
+                    <input type="checkbox" id="emergency-lighting" name="inspection" value="emergency-lighting">
+                    <label for="emergency-lighting">Emergency Lighting</label>
+
+                    <input type="checkbox" id="exit-signs" name="inspection" value="exit-signs">
+                    <label for="exit-signs">Exit Signs</label>
+
+                    <input type="checkbox" id="fire-doors" name="inspection" value="fire-doors">
+                    <label for="fire-doors">Fire Doors</label>
+
+                    <input type="checkbox" id="electrical-panels" name="inspection" value="electrical-panels">
+                    <label for="electrical-panels">Electrical Panels</label>
+
+                    <input type="checkbox" id="circuit-breakers" name="inspection" value="circuit-breakers">
+                    <label for="circuit-breakers">Circuit Breakers</label>
+
+                    <input type="checkbox" id="backup-generators" name="inspection" value="backup-generators">
+                    <label for="backup-generators">Backup Generators</label>
+
+                    <input type="checkbox" id="fire-blankets" name="inspection" value="fire-blankets">
+                    <label for="fire-blankets">Fire Blankets</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
