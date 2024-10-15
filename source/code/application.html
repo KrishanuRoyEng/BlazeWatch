@@ -4,84 +4,275 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Application Form</title>
-    <link rel="stylesheet" href="application.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('https://t4.ftcdn.net/jpg/00/36/56/91/360_F_36569194_NlP2lY7G89KsLeJ0NYGK8QxM5nYt2hWF.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .form-container {
+            background: #481E14;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 100%;
+            height: 90vh;
+            overflow-y: auto;
+            animation: fadeIn 0.5s ease-in-out;
+            scrollbar-width: thin;
+            scrollbar-color: #FFEB55 #7E4B3A;
+        }
+
+        .form-container::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        .form-container::-webkit-scrollbar-thumb {
+            background-color: #FFEB55;
+            border-radius: 6px;
+        }
+
+        .form-container::-webkit-scrollbar-track {
+            background-color: #7E4B3A;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #FFEB55;
+            font-size: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #FFEB55;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            box-sizing: border-box;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #FABC3F;
+            outline: none;
+            box-shadow: 0 0 5px rgba(250, 188, 63, 0.3);
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 12px;
+            background-color: #E85C0D;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .form-group button:hover {
+            background-color: #d2560a;
+        }
+
+        .form-group button:active {
+            transform: scale(0.98);
+        }
+
+        .form-group input::placeholder {
+            color: #aaa;
+        }
+
+        .property-type {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .property-type label {
+            background-color: #7E4B3A;
+            color: #FFEB55;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .property-type input[type="radio"] {
+            display: none;
+        }
+
+        .property-type input[type="radio"]:checked + label {
+            background-color: #FFEB55;
+            color: #481E14;
+        }
+
+        .property-type label:hover {
+            background-color: #E85C0D;
+        }
+
+        .inspection-items {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .inspection-items label {
+            margin: 0;
+            color: #FFEB55;
+            background-color: #7E4B3A;
+            text-align: center;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .inspection-items input[type="checkbox"] {
+            display: none;
+        }
+
+        .inspection-items input[type="checkbox"]:checked + label {
+            background-color: #FFEB55;
+            color: #481E14;
+        }
+
+        .inspection-items label:hover {
+            background-color: #E85C0D;
+        }
+    </style>
 </head>
 <body>
     <div class="form-container">
         <h2>Application Form</h2>
         <form>
             <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Enter your name">
+                <label for="full-name">Full Name of Applicant:</label>
+                <input type="text" id="full-name" name="full-name" placeholder="Please provide your complete name." required>
             </div>
-
             <div class="form-group">
-                <label for="relation">Relation to the Applicant</label>
-                <input type="text" id="relation" name="relation" placeholder="Enter your relation to the applicant">
+                <label for="full-address">Complete Address of Applicant:</label>
+                <input type="text" id="full-address" name="full-address" placeholder="Please enter your full address." required>
             </div>
-
             <div class="form-group">
-                <label for="contact">Contact Number</label>
-                <input type="text" id="contact" name="contact" placeholder="Enter your contact number">
+                <label for="contact">Contact Information of Applicant:</label>
+                <input type="tel" id="contact" name="contact" placeholder="+91 Please enter your contact number." pattern="\+91[0-9]{10}" required>
             </div>
-
             <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email">
+                <label for="email">Email Address of Applicant:</label>
+                <input type="email" id="email" name="email" placeholder="Please provide your email address." required>
             </div>
-
             <div class="form-group">
-                <label for="address">Address</label>
-                <textarea id="address" name="address" rows="3" placeholder="Enter your address"></textarea>
+                <label for="building-number">House/Building Number:</label>
+                <input type="text" id="building-number" name="building-number" placeholder="For example, 202, 203." required>
             </div>
-
+            <div class="form-group">
+                <label>Type of Property:</label>
+                <div class="property-type">
+                    <input type="radio" id="residential" name="property-type" value="residential" required>
+                    <label for="residential">Residential Property</label>
+                    
+                    <input type="radio" id="commercial" name="property-type" value="commercial" required>
+                    <label for="commercial">Commercial Property</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Relationship of Applicant to the Property:</label>
+                <select id="relationship" name="relationship" required>
+                    <option value="" disabled selected>Select your relationship</option>
+                    <option value="owner">Owner</option>
+                    <option value="manager">Manager</option>
+                    <option value="renter">Renter</option>
+                    <option value="co-owner">Co-owner</option>
+                    <option value="occupant">Occupant</option>
+                    <option value="leaseholder">Leaseholder</option>
+                    <option value="guardian">Guardian</option>
+                    <option value="authorized-representative">Authorized Representative</option>
+                    <option value="family-member">Family Member</option>
+                </select>
+            </div>
             <div class="form-group">
                 <label for="inspection-items">What Does the Applicant Wish to Inspect?</label>
                 <div class="inspection-items">
                     <input type="checkbox" id="electrical-wiring" name="inspection" value="electrical-wiring">
                     <label for="electrical-wiring">Electrical Wiring</label>
-
+                    
                     <input type="checkbox" id="fire-extinguishers" name="inspection" value="fire-extinguishers">
                     <label for="fire-extinguishers">Fire Extinguishers</label>
-
+                    
                     <input type="checkbox" id="hoses" name="inspection" value="hoses">
                     <label for="hoses">Hoses</label>
-
+                    
                     <input type="checkbox" id="fire-alarms" name="inspection" value="fire-alarms">
                     <label for="fire-alarms">Fire Alarms</label>
-
+                    
                     <input type="checkbox" id="sprinklers" name="inspection" value="sprinklers">
                     <label for="sprinklers">Sprinklers</label>
-
+                    
                     <input type="checkbox" id="fire-exits" name="inspection" value="fire-exits">
                     <label for="fire-exits">Fire Exits</label>
-
+                    
                     <input type="checkbox" id="smoke-detectors" name="inspection" value="smoke-detectors">
                     <label for="smoke-detectors">Smoke Detectors</label>
-
+                    
                     <input type="checkbox" id="emergency-lighting" name="inspection" value="emergency-lighting">
                     <label for="emergency-lighting">Emergency Lighting</label>
-
+                    
                     <input type="checkbox" id="exit-signs" name="inspection" value="exit-signs">
                     <label for="exit-signs">Exit Signs</label>
-
+                    
                     <input type="checkbox" id="fire-doors" name="inspection" value="fire-doors">
                     <label for="fire-doors">Fire Doors</label>
-
+                    
                     <input type="checkbox" id="electrical-panels" name="inspection" value="electrical-panels">
                     <label for="electrical-panels">Electrical Panels</label>
-
+                    
                     <input type="checkbox" id="circuit-breakers" name="inspection" value="circuit-breakers">
                     <label for="circuit-breakers">Circuit Breakers</label>
-
+                    
                     <input type="checkbox" id="backup-generators" name="inspection" value="backup-generators">
                     <label for="backup-generators">Backup Generators</label>
-
+                    
                     <input type="checkbox" id="fire-blankets" name="inspection" value="fire-blankets">
                     <label for="fire-blankets">Fire Blankets</label>
+
+                    <input type="checkbox" id="all-of-the-above" name="inspection" value="all-of-the-above">
+                    <label for="all-of-the-above">All of the Above</label>
                 </div>
             </div>
-
             <div class="form-group">
                 <button type="submit">Submit</button>
             </div>
