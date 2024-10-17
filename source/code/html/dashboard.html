@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <div class="menu">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Applications</a></li>
+                <li><a href="#">Settings</a></li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <div class="header">
+                <div class="officer-info">
+                    <img src="../../assets/images/WhatsApp Image 2024-10-17 at 11.48.41_781cd611.jpg" alt="Officer Image" class="officer-img">
+                    <span>Officer Name</span>
+                </div>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-box">
+                    <h3>Pending Applications</h3>
+                    <span id="pending-count">0</span>
+                </div>
+                <div class="stat-box">
+                    <h3>Resolved Applications</h3>
+                    <span id="resolved-count">0</span>
+                </div>
+            </div>
+
+            <div class="application-details">
+                <h3>Application Details</h3>
+                <button id="addAppBtn" class="add-btn">+ Add Application</button>
+                <button id="deleteSelectedBtn" class="delete-btn">Delete Selected</button>
+
+                <table id="application-table">
+                    <thead>
+                        <tr>
+                            <th>Select</th>
+                            <th>Application ID</th>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Application rows go here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup Modal for Adding Application -->
+    <div id="appModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add Application</h2>
+            <form id="applicationForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required><br><br>
+                <label for="status">Status:</label>
+                <select id="status" name="status" required>
+                    <option value="Pending">Pending</option>
+                    <option value="Resolved">Resolved</option>
+                </select><br><br>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../JS/dashboard.js"></script>
+</body>
+</html>
