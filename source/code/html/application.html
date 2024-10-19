@@ -9,18 +9,19 @@
 <body>
     <div class="form-container">
         <h2>Application Form</h2>
-        <form>
+        <!-- Update your form action here -->
+        <form action="/api/applicant-details" method="POST">
             <div class="form-group">
                 <label for="full-name">Full Name of Applicant:</label>
-                <input type="text" id="full-name" name="full-name" placeholder="Please provide your complete name." required>
+                <input type="text" id="full-name" name="full_name" placeholder="Please provide your complete name." required>
             </div>
             <div class="form-group">
                 <label for="full-address">Complete Address of Applicant:</label>
-                <input type="text" id="full-address" name="full-address" placeholder="Please enter your full address." required>
+                <input type="text" id="full-address" name="full_address" placeholder="Please enter your full address." required>
             </div>
             <div class="form-group">
                 <label for="contact">Contact Information of Applicant:</label>
-                <input type="tel" id="contact" name="contact" placeholder="+91 Please enter your contact number." pattern="\+91[0-9]{10}" required>
+                <input type="tel" id="contact" name="contact_number" placeholder="Please enter your contact number." pattern="[0-9]{10}" required>
             </div>
             <div class="form-group">
                 <label for="email">Email Address of Applicant:</label>
@@ -28,15 +29,15 @@
             </div>
             <div class="form-group">
                 <label for="building-number">House/Building Number:</label>
-                <input type="text" id="building-number" name="building-number" placeholder="For example, 202, 203." required>
+                <input type="text" id="building-number" name="building_number" placeholder="For example, 202, 203." required>
             </div>
             <div class="form-group">
                 <label>Type of Property:</label>
                 <div class="property-type" onchange="showConditionalFields()">
-                    <input type="radio" id="residential" name="property-type" value="residential" required>
+                    <input type="radio" id="residential" name="property_type" value="residential" required>
                     <label for="residential">Residential Property</label>
                     
-                    <input type="radio" id="commercial" name="property-type" value="commercial" required>
+                    <input type="radio" id="commercial" name="property_type" value="commercial" required>
                     <label for="commercial">Commercial Property</label>
                 </div>
             </div>
@@ -45,16 +46,16 @@
                     <label>Select Residential Option:</label>
                     <div class="radio-group">
                         <label for="whole-building-residential">Whole Building</label>
-                        <input type="radio" id="whole-building-residential" name="residential-option" value="whole-building">
+                        <input type="radio" id="whole-building-residential" name="residential_option" value="whole-building">
                     </div>
                     <div class="radio-group">
                         <label for="flat-residential">Flat</label>
-                        <input type="radio" id="flat-residential" name="residential-option" value="flat">
+                        <input type="radio" id="flat-residential" name="residential_option" value="flat">
                     </div>
                 </div>
                 <div class="form-group conditional-fields" id="flat-number-field">
                     <label for="flat-number">Flat Number:</label>
-                    <input type="text" id="flat-number" name="flat-number" placeholder="Enter your flat number">
+                    <input type="text" id="flat-number" name="flat_number" placeholder="Enter your flat number">
                 </div>
             </div>
             <div id="commercial-options" class="conditional-fields">
@@ -80,57 +81,55 @@
                     <option value="co-owner">Co-owner</option>
                     <option value="occupant">Occupant</option>
                     <option value="leaseholder">Leaseholder</option>
-                    <option value="guardian">Guardian</option>
                     <option value="authorized-representative">Authorized Representative</option>
-                    <option value="family-member">Family Member</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="inspection-items">What Does the Applicant Wish to Inspect?</label>
                 <div class="inspection-items">
-                    <input type="checkbox" id="electrical-wiring" name="inspection" value="electrical-wiring">
+                    <input type="checkbox" id="electrical-wiring" name="inspection_items" value="electrical-wiring">
                     <label for="electrical-wiring">Electrical Wiring</label>
                     
-                    <input type="checkbox" id="fire-extinguishers" name="inspection" value="fire-extinguishers">
+                    <input type="checkbox" id="fire-extinguishers" name="inspection_items" value="fire-extinguishers">
                     <label for="fire-extinguishers">Fire Extinguishers</label>
                     
-                    <input type="checkbox" id="hoses" name="inspection" value="hoses">
+                    <input type="checkbox" id="hoses" name="inspection_items" value="hoses">
                     <label for="hoses">Hoses</label>
                     
-                    <input type="checkbox" id="fire-alarms" name="inspection" value="fire-alarms">
+                    <input type="checkbox" id="fire-alarms" name="inspection_items" value="fire-alarms">
                     <label for="fire-alarms">Fire Alarms</label>
                     
-                    <input type="checkbox" id="sprinklers" name="inspection" value="sprinklers">
+                    <input type="checkbox" id="sprinklers" name="inspection_items" value="sprinklers">
                     <label for="sprinklers">Sprinklers</label>
                     
-                    <input type="checkbox" id="fire-exits" name="inspection" value="fire-exits">
+                    <input type="checkbox" id="fire-exits" name="inspection_items" value="fire-exits">
                     <label for="fire-exits">Fire Exits</label>
                     
-                    <input type="checkbox" id="smoke-detectors" name="inspection" value="smoke-detectors">
+                    <input type="checkbox" id="smoke-detectors" name="inspection_items" value="smoke-detectors">
                     <label for="smoke-detectors">Smoke Detectors</label>
                     
-                    <input type="checkbox" id="emergency-lighting" name="inspection" value="emergency-lighting">
+                    <input type="checkbox" id="emergency-lighting" name="inspection_items" value="emergency-lighting">
                     <label for="emergency-lighting">Emergency Lighting</label>
                     
-                    <input type="checkbox" id="exit-signs" name="inspection" value="exit-signs">
+                    <input type="checkbox" id="exit-signs" name="inspection_items value="exit-signs">
                     <label for="exit-signs">Exit Signs</label>
                     
-                    <input type="checkbox" id="fire-doors" name="inspection" value="fire-doors">
+                    <input type="checkbox" id="fire-doors" name="inspection_items" value="fire-doors">
                     <label for="fire-doors">Fire Doors</label>
                     
-                    <input type="checkbox" id="electrical-panels" name="inspection" value="electrical-panels">
+                    <input type="checkbox" id="electrical-panels" name="inspection_items" value="electrical-panels">
                     <label for="electrical-panels">Electrical Panels</label>
                     
-                    <input type="checkbox" id="circuit-breakers" name="inspection" value="circuit-breakers">
+                    <input type="checkbox" id="circuit-breakers" name="inspection_items" value="circuit-breakers">
                     <label for="circuit-breakers">Circuit Breakers</label>
                     
-                    <input type="checkbox" id="backup-generators" name="inspection" value="backup-generators">
+                    <input type="checkbox" id="backup-generators" name="inspection_items" value="backup-generators">
                     <label for="backup-generators">Backup Generators</label>
                     
-                    <input type="checkbox" id="fire-blankets" name="inspection" value="fire-blankets">
+                    <input type="checkbox" id="fire-blankets" name="inspection_items" value="fire-blankets">
                     <label for="fire-blankets">Fire Blankets</label>
 
-                    <input type="checkbox" id="all-of-the-above" name="inspection" value="all-of-the-above">
+                    <input type="checkbox" id="all-of-the-above" name="inspection_items" value="all-of-the-above">
                     <label for="all-of-the-above">All of the Above</label>
                 </div>
             </div>
@@ -140,6 +139,6 @@
         </form>
     </div>
 
-    <script src="../JS/application.js"></script>
+    <script src="../js/application.js"></script>
 </body>
 </html>

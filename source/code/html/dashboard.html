@@ -67,16 +67,30 @@
             <h2>Add Application</h2>
             <form id="applicationForm">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required><br><br>
+                <input type="text" id="name" name="name" required>
+
                 <label for="address">Address:</label>
-                <input type="text" id="address" name="address" required><br><br>
+                <input type="text" id="address" name="address" required>
+
                 <label for="status">Status:</label>
                 <select id="status" name="status" required>
                     <option value="Pending">Pending</option>
                     <option value="Resolved">Resolved</option>
-                </select><br><br>
+                </select>
+
                 <button type="submit" class="submit-btn">Submit</button>
             </form>
+        </div>
+    </div>
+
+    <!-- Modal for Viewing Application Details -->
+    <div id="viewAppModal" class="modal">
+        <div class="modal-content">
+            <span class="close-view">&times;</span>
+            <h2>Application Details</h2>
+            <div id="appDetails">
+                <!-- Application details will be dynamically loaded here -->
+            </div>
         </div>
     </div>
 
