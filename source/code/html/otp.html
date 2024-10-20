@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status Page</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('https://static.vecteezy.com/system/resources/thumbnails/015/710/948/small_2x/abstract-background-texture-art-orange-and-yellow-colors-watercolor-painting-on-canvas-with-soft-red-gradient-free-vector.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #fff;
+        }
+        .container {
+            width: 90%;
+            max-width: 400px;
+            padding: 30px;
+            background-color: transparent; /* Transparent background */
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .container:hover {
+            transform: translateY(-5px);
+        }
+        .box {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #ffffff; /* White background for each input container */
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 0;
+            border-radius: 8px;
+            border: none;
+            background-color: rgba(0, 0, 0, 0); /* Transparent input background */
+            color: #000; /* Black text for input fields */
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: box-shadow 0.3s ease;
+        }
+        input[type="text"]:focus {
+            box-shadow: 0 0 5px rgba(199, 37, 62, 0.5);
+            outline: none;
+        }
+        button {
+            padding: 14px;
+            width: 100%;
+            background-color: #C7253E; /* Your preferred button color */
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px; /* Space between input and button */
+        }
+        button:hover {
+            background-color: #A11D36; /* Darker shade on hover */
+            transform: translateY(-2px);
+        }
+        button:active {
+            background-color: #8A1A2E; /* Even darker shade on click */
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+            input[type="text"], button {
+                padding: 10px;
+                font-size: 16px;
+            }
+        }
+        .logo {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px auto; /* Centering the logo */
+            border-radius: 10px; /* Square shape with rounded corners */
+            background-image: url('https://media.istockphoto.com/id/953520974/vector/tick-mark-approved-icon-shield-vector-on-white-background.jpg?s=612x612&w=0&k=20&c=lalLRIXMNvWP6JuqHjoz_h0q-iQXSgOgI5pztVZ6SN8=');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+    <script>
+        function validateForm(event) {
+            const otp = document.getElementById("otp").value;
+
+            if (!otp) {
+                event.preventDefault(); // Prevent form submission
+                alert("Please enter the OTP."); // Alert the user
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Square Container with Image Centered -->
+        <div class="logo"></div>
+        
+        <!-- Form to handle input and submission -->
+        <form onsubmit="validateForm(event)" action="blaze_checkstts.html">
+            <!-- Box: OTP Input -->
+            <div class="box">
+                <input type="text" id="otp" placeholder="Enter your OTP" required>
+            </div>
+
+            <!-- Verify Button -->
+            <button type="submit">Verify</button>
+        </form>
+    </div>
+</body>
+</html>

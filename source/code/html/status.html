@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status Check</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #f7f7f7, #eaeaea);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+        .container, .status-container {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+            margin-bottom: 20px;
+            transition: all 0.3s ease-in-out;
+        }
+        h1 {
+            color: #C7253E;
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #444;
+            font-size: 1.5em;
+            margin-top: 20px;
+            border-bottom: 2px solid #C7253E;
+            padding-bottom: 5px;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            vertical-align: top;
+            background-color: #fafafa;
+        }
+        .left-column {
+            width: 50%;
+            font-weight: bold;
+            background-color: #f0f0f0;
+        }
+        .right-column {
+            width: 50%;
+            text-align: left;
+        }
+        .btn {
+            background-color: #C7253E;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #a11e33;
+        }
+        .status-container {
+            display: none;
+            margin-top: 20px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .status-text {
+            font-size: 2em;
+            font-weight: bold;
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+        .status-image {
+            width: 100px;
+            height: 100px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            display: block;
+            margin: 10px auto;
+        }
+        .reason-container {
+            margin-top: 15px;
+            text-align: center;
+        }
+        .reason-text {
+            font-weight: bold;
+            cursor: pointer;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        .dropdown-triangle {
+            border: solid black;
+            border-width: 0 3px 3px 0;
+            display: inline-block;
+            padding: 5px;
+            transform: rotate(45deg);
+            margin-left: 5px;
+        }
+        .reason-details {
+            display: none;
+            background: #ffffff;
+            max-height: 100px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: left;
+            width: 80%;
+            margin: 10px auto;
+        }
+        @media (max-width: 768px) {
+            .left-column, .right-column {
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            td {
+                display: block;
+                padding: 8px;
+                border: none;
+            }
+            .status-image {
+                width: 80px;
+                height: 80px;
+            }
+        }
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5em;
+            }
+            h2 {
+                font-size: 1.2em;
+            }
+            .btn {
+                padding: 8px 16px;
+            }
+            .status-text {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Current Status</h1>
+        <h2>Applicant's Information</h2>
+        <table>
+            <tr>
+                <td class="left-column">Full Name of Applicant:</td>
+                <td class="right-column" id="applicantName"></td>
+            </tr>
+            <tr>
+                <td class="left-column">Complete Address of Applicant:</td>
+                <td class="right-column" id="applicantAddress"></td>
+            </tr>
+            <tr>
+                <td class="left-column">Contact Information of Applicant:</td>
+                <td class="right-column" id="contactInfo"></td>
+            </tr>
+            <tr>
+                <td class="left-column">Email Address of Applicant:</td>
+                <td class="right-column" id="emailAddress"></td>
+            </tr>
+            <tr>
+                <td class="left-column">House/Building Number:</td>
+                <td class="right-column" id="houseNumber"></td>
+            </tr>
+            <tr>
+                <td class="left-column">Type of Property:</td>
+                <td class="right-column" id="propertyType"></td>
+            </tr>
+            <tr>
+                <td class="left-column">Relationship of Applicant to the Property:</td>
+                <td class="right-column" id="relationship"></td>
+            </tr>
+            <tr>
+                <td class="left-column">What Does the Applicant Wish to Inspect?</td>
+                <td class="right-column" id="inspectionWish"></td>
+            </tr>
+        </table>
+        <button class="btn" onclick="checkStatus()">Check Status</button>
+    </div>
+
+    <div class="status-container" id="statusContainer">
+        <div class="status-text">Approved</div>
+        <img src="https://www.shutterstock.com/image-vector/check-mark-logo-vector-icon-260nw-792177715.jpg" alt="Approved" class="status-image">
+        <div class="reason-container">
+            <div class="reason-text" onclick="toggleReasonDetails()">Reason <span class="dropdown-triangle"></span></div>
+            <div class="reason-details" id="reasonDetails">
+                The inspection has been approved due to compliance with all required safety regulations and standards. No further action is needed from the applicant at this time.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkStatus() {
+            // Placeholder data, you can replace this with dynamic data
+            document.getElementById('applicantName').textContent = 'John Doe';
+            document.getElementById('applicantAddress').textContent = '1234 Elm Street, Springfield';
+            document.getElementById('contactInfo').textContent = '+1 234 567 890';
+            document.getElementById('emailAddress').textContent = 'john.doe@example.com';
+            document.getElementById('houseNumber').textContent = '42B';
+            document.getElementById('propertyType').textContent = 'Residential';
+            document.getElementById('relationship').textContent = 'Owner';
+            document.getElementById('inspectionWish').textContent = 'Fire Safety Inspection';
+
+            // Show the status container when "Check Status" is clicked
+            document.getElementById('statusContainer').style.display = 'block';
+        }
+
+        function toggleReasonDetails() {
+            const reasonDetails = document.getElementById('reasonDetails');
+            reasonDetails.style.display = reasonDetails.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>

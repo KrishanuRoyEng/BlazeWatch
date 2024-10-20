@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    background-image: url('../../assets/images/background1.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+login-box {
+    background-color: rgba(255, 255, 255, 0);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    width: 300px;
+}
+
+.avatar {
+    background-image: url('loginicon-removebg-preview.png');
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 20px;
+}
+
+.input-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+.input-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 10px 10px 10px 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+}
+.blazewatch-heading {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.blaze {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+
+.watch {
+    color: white;
+    font-weight: bold;
+}
+
+.input-container .input-icon {
+    position: absolute;
+    border: none;
+    border-radius: 5px;
+    left: 3px;
+    top: 55%;
+    transform: translateY(-53%);
+    width: 32px;
+    height: 32px;
+    opacity: 0.8;
+}
+
+button.login-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #d63535;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button.login-btn:hover {
+    background-color: #aa0000;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.remember-me input {
+    margin-right: 10px;
+}
+
+.forgot-password {
+    display: block;
+    margin-top: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
